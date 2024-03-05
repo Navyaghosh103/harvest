@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
+    <title>Harvest Haven</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1 id="title"> Sign Up</h1>
+        <form id="form" action="/">
+            <div class="input-group">
+                <div class="input-field" >
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name" name="name" id="nameField" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-field" >
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" placeholder="Phone" name="phone" id="phoneField" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-field" >
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" name="email" id="emailField" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-field" >
+                    <i class="fa-solid fa-address-book"></i>
+                    <input type="text" placeholder="Address" name="email" id="addressField" required>
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-field" >
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" id="passwordField" required>
+                    <div class="error"></div>
+                </div>
+                <div class="input-field" >
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Confirm Password" name="confirm" id="confirmField" required>
+                    <div class="error"></div>
+                </div>
+                <p>Already have an account?<a href="{% url 'fresh_tohome:sign_in' %}">SignIn</a> </p>
+
+            </div>
+            <div class="btn-field">
+                <button type="submit" id="signupBtn">Sign up</button>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('form');
+        const nameField = document.getElementById('nameField');
+        const phoneField = document.getElementById('phoneField');
+        const emailField = document.getElementById('emailField');
+        const addressField = document.getElementById('addressField');
+        const passwordField = document.getElementById('passwordField');
+        const confirmField = document.getElementById('confirmField');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+        });
+
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success');
+        };
+
+        const setSuccess = (element) => {
+            const inputControl = element.parentElement;
+            inputControl.classList.remove('error');
+            inputControl.classList.add('success');
+        };
+
+        const isValidEmail = emailField => {
+            const re = /^[a-zA-Z0-9. _-]+@[a-zA-Z0-9. -]+\.[a-zA-Z]{2,4}$/ ;
+            return re.test(String(emailField).toLowerCase());
+        };
+
+        const validateInputs = () => {
+            const nameFieldValue = nameField.value.trim();
+            const phoneFieldValue = phoneField.value.trim();
+            const emailFieldValue = emailField.value.trim();
+            const addressFieldValue = addressField.value.trim();
+            const passwordFieldValue = passwordField.value.trim();
+            const confirmFieldValue = confirmField.value.trim();
+
+            if (nameFieldValue === "") {
+                setError(nameField, 'Name is required');
+            } else {
+                setSuccess(nameField);
+            }
+
+            if (emailFieldValue === "" || !isValidEmail(emailFieldValue)) {
+                setError(emailField, 'Provide a valid email address');
+            } else {
+                setSuccess(emailField);
+            }
+
+            if (addressFieldValue === "") {
+                setError(addressField, 'Address is required');
+            } else {
+                setSuccess(addressField);
+            }
+
+            if (passwordFieldValue === "" || passwordFieldValue.length < 8) {
+                setError(passwordField, 'Password must be at least 8 characters.');
+            } else {
+                setSuccess(passwordField);
+            }
+
+            if (confirmFieldValue === "") {
+                setError(confirmField, 'Please confirm your password');
+            } else if (confirmFieldValue !== passwordFieldValue) {
+                setError(confirmField, "Passwords don't match");
+            } else {
+                setSuccess(confirmField);
+            }
+        };
+    });
+</script>
+</body>
+</html>

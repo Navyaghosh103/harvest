@@ -1,0 +1,168 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
+
+    <title>Harvest Haven</title>
+</head>
+<body>
+<section id="header">
+    <a href="#"><img src="{% static 'images/logo.png' %}" class="logo" alt="image1" ></a>
+    <div>
+         <ul id="navbar">
+            <li><a href="{% url 'fresh_tohome:home' %}">Home</a></li>
+            <li><a href="{% url 'fresh_tohome:shop' %}">Shop</a></li>
+            <li><a href="{% url 'fresh_tohome:offers' %}">Offers</a></li>
+            <li><a href="{% url 'fresh_tohome:about_farmers' %}">About Farmers</a></li>
+            <li><a href="{% url 'fresh_tohome:about_us' %}">About Us</a></li>
+            <li><a href="{% url 'fresh_tohome:contact' %}">Contact</a></li>
+            <li id="lg-bag"><a href="{% url 'fresh_tohome:cart' %}"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            <button id="signin-btn" class="log"><a href="{% url 'fresh_tohome:sign_in' %}">Sign In</a></button>
+            <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      <i id="bar" class="fa-solid fa-outdent"></i>
+
+    </div>
+</section>
+
+<section id="page-header" class="about-header">
+    <h2>#KnowUs</h2>
+    <p>This or that, whatever befall, the farmer must feed them all!</p>
+
+
+</section>
+<section id="about-head" class="section-p1">
+    <img src="{% static 'images/us.png' %}"  alt="us" >
+    <div>
+        <h2>Who We Are?</h2>
+        <p>You must have heard the saying "This or that whatever we befall, the farmer must feed them all!" Countless superheros, hace been born on this earth,
+        while many are fictional, a handful are real. Well we represent the real superheros- The Farmers
+
+        Harvest Haven aims at unlocking access to safe-to-eat,pesticide screened fruits and vegetables directly sourced from our farmers.
+        We are an online platform available to you on both website and mobile application.
+
+        At Harvest Haven we are in the quest to create a positive movement- a movement aimed at reducing the gap between the consumer & a
+            farmer, the movement that gives consumers to access to safe and non toxic farmers produce a movement that also uplifts the farmer community.
+
+            Harvest Haven is agri tech start up bridging the gap between the fruits and vegetables supply chain. We connect the rural farmers to urban consumers.
+        </p>
+
+        <abbr title="">Harvest Haven</abbr>
+        <br><br>
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%" direction="">Rural Farmers to Urban Consumers!</marquee>
+
+
+    </div>
+</section>
+<section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="{% static 'images/testing.png' %}" alt="Residue-Testing">
+        <h6>Residue Testing</h6>
+        <p>Regular pesticide residue
+        testing</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/sourcing.png' %}" alt="Local-Sourcing">
+        <h6>Local Sourcing</h6>
+         <p>Sourcing locally from approved
+         farmers</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/traceability.png' %}" alt="Traceability">
+        <h6>Traceability</h6>
+         <p>Supply chain traceability in
+         farm travel</p>
+    </div>
+     <div class="fe-box">
+        <img src="{% static 'images/order.png' %}" alt="Order-Now">
+        <h6>Order Now</h6>
+         <p>Delivered Tomorrow</p>
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign up for Newsletters</h4>
+        <p>Get email updates about our latest <span>special offers</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address">
+        <button class="normal">Sign up</button>
+    </div>
+</section>
+
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> Harvest Haven Labs </p>
+        <p><strong>Phone:</strong> 8921592755</p>
+        <p><strong>Hours:</strong> 10.00 to 5.00, Mon - Sat</p>
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-pinterest"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My wishlist</a>
+        <a href="#">Track my order</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="{% static 'images/app.png' %}" alt="App">
+            <img src="{% static 'images/play.png' %}" alt="Play">
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="{% static 'images/pay.png' %}" alt="Pay">
+    </div>
+    <div class="copyright">
+        <p>Copyright @ 2024 Harvest Haven. All Rights Reserved.</p>
+    </div>
+</footer>
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
+    <title>Harvest Haven</title>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1 id="title"> Sign In</h1>
+        <form id="form" action="/">
+            <div class="input-group">
+
+
+                <div class="input-field" id="emailField">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email">
+                    <div class="error"></div>
+                </div>
+                <div class="input-field" id="passwordField">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password">
+                    <div class="error"></div>
+                </div>
+
+                <p>Didn't have an account?<a href="{% url 'fresh_tohome:sign_up' %}">SignUp</a> </p>
+
+            </div>
+            <div class="btn-field">
+                <button type="button" id="signinBtn">Sign in</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
